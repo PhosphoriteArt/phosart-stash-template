@@ -1,0 +1,15 @@
+{
+	"files.associations": {
+		"*.css": "tailwindcss",
+		"*.gallery": "yaml"
+	},
+	"eslint.validate": [
+		"markdown",
+		"mdx",
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"svelte"
+	]
+}

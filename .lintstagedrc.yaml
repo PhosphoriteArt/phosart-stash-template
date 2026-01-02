@@ -1,0 +1,6 @@
+'**/*.{js,ts,svelte,json,yaml}':
+  - 'prettier --write'
+  - 'eslint --fix'
+
+'**/*.gallery':
+  - 'prettier --write'
