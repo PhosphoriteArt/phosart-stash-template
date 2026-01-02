@@ -3,7 +3,8 @@ import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
 	return {
-		...params
+    ...params,
+    gallery: (await galleries())[params.gallerypath]
 	};
 };
 

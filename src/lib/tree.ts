@@ -2,26 +2,32 @@ import { arrayToShuffled } from 'array-shuffle';
 import type { GalleryCache } from 'phosart-common/server';
 import type { Gallery } from 'phosart-common/util';
 
-export type TreeElement =
-	| { $type: 'folder'; data: GalleryTree }
-	| { $type: 'gallery'; data: Gallery };
+export type FolderElement = { $type: 'folder'; data: GalleryTree; items: number };
+export type GalleryElement = { $type: 'gallery'; data: Gallery; fullpath: string };
+export type TreeElement = FolderElement | GalleryElement;
 
 export type GalleryTree = {
 	[element: string]: TreeElement;
 };
 
-export function asTree(cache: GalleryCache, pruneGalleries?: number): GalleryTree {
+export function asTree(cache: GalleryCache, pruneGalleries?: number): FolderElement {
 	const paths: [string, Gallery][] = Object.entries(cache);
-	const tree: TreeElement = { $type: 'folder', data: {} };
+	const tree: TreeElement = { $type: 'folder', data: {}, items: 0 };
 	for (const [path, gallery] of paths) {
 		let cur = tree;
+		tree.items += gallery.pieces.length;
 		const segments = path.split('/');
 		const dir = segments.slice(0, -1);
 		for (const segment of dir) {
-			const next = tree.data[segment];
+			let next = cur.data[segment];
+			if (!next) {
+				cur.data[segment] = { $type: 'folder', data: {}, items: 0 };
+				next = cur.data[segment];
+			}
 			if (next.$type !== 'folder') {
 				throw new Error('Somehow found gallery + folder with same name??');
 			}
+			next.items += gallery.pieces.length;
 			cur = next;
 		}
 		cur.data[segments.at(-1)!] = {
@@ -30,15 +36,16 @@ export function asTree(cache: GalleryCache, pruneGalleries?: number): GalleryTre
 				pieces: pruneGalleries
 					? arrayToShuffled(gallery.pieces).slice(0, pruneGalleries)
 					: gallery.pieces
-			}
+			},
+			fullpath: path
 		};
 	}
 
-	return tree.data;
+	return tree;
 }
 
-export function pathView(tree: GalleryTree, path: string[]): GalleryTree {
-	let cur: TreeElement = { $type: 'folder', data: tree };
+export function pathView(tree: FolderElement, path: string[]): GalleryTree {
+	let cur: TreeElement = tree;
 	// Go to path
 	for (let i = 0; i < path.length; i++) {
 		const el = path[i];
@@ -52,10 +59,16 @@ export function pathView(tree: GalleryTree, path: string[]): GalleryTree {
 		cur = next;
 	}
 
+	cur = { ...cur, data: { ...cur.data } };
+
 	// Prune deeper levels
 	for (const [k, el] of Object.entries(cur.data)) {
 		if (el.$type === 'folder') {
-			cur.data[k] = { $type: 'folder', data: {} };
+			if (el.items === 0) {
+				delete cur.data[k];
+			} else {
+				cur.data[k] = { $type: 'folder', data: {}, items: el.items };
+			}
 		}
 	}
 	return cur.data;

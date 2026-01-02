@@ -1,3 +1,6 @@
 {
-  "$schema": "https://raw.githubusercontent.com/PhosphoriteArt/phosart-common/refs/heads/main/settings.schema.json"
+	"$schema": "https://raw.githubusercontent.com/PhosphoriteArt/phosart-common/refs/heads/main/settings.schema.json",
+	"title": { "type": "string" },
+	"subtitle": { "type": "string" },
+	"attribution": { "type": "string" }
 }

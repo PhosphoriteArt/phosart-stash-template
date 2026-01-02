@@ -1,1 +1,5 @@
-export type ThemeSchema = Record<string, never>;
+export interface ThemeSchema {
+  "title": string;
+  "subtitle": string;
+  "attribution": string;
+}
