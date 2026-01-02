@@ -1,13 +1,9 @@
 import { normalizeArtist, normalizeCharacter, type ArtPiece } from 'phosart-common/util';
 import fz from 'fuzzysort';
-import { galleries } from 'phosart-common/server';
 import { asRecord } from '$lib/util';
 
-export async function executeSearch(query: string): Promise<ArtPiece[]> {
-	const allPieces = asRecord(
-		Object.values(await galleries()).flatMap((g) => g.pieces),
-		(p) => p.slug
-	);
+export function executeSearch(query: string, searchSpace: ArtPiece[]): ArtPiece[] {
+	const allPieces = asRecord(searchSpace, (p) => p.slug);
 
 	const searchObj = Object.values(allPieces).map((p) => ({
 		name: p.name,

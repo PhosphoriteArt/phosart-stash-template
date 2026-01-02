@@ -1,40 +1,13 @@
 <script lang="ts">
-	import type { ArtPiece } from 'phosart-common/util';
-	import { onMount, untrack } from 'svelte';
-	import { debounce } from 'es-toolkit';
 	import { page } from '$app/state';
 	import Header from '$lib/Header.svelte';
 	import { Gallery } from 'phosart-common';
 	import { browser } from '$app/environment';
+	import { executeSearch } from '$lib/search.js';
 
 	const { data } = $props();
 
-	let results: ArtPiece[] | null = $state(null);
-
-	function doSearch(query: string) {
-		if (!query) {
-			results = [];
-		}
-		fetch('/api/search?q=' + encodeURIComponent(query))
-			.then((res) => res.json())
-			.then((result) => {
-				results = result;
-			});
-	}
-
-	const searchDebounced = debounce(doSearch, 250);
-
-	$effect(() => {
-		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-		page.state.query;
-		if (untrack(() => results !== null)) {
-			searchDebounced(page.state.query ?? '');
-		}
-	});
-
-	onMount(() => {
-		doSearch(page.state.query ?? '');
-	});
+	const results = $derived(executeSearch(page.state.query ?? '', data.allPieces));
 </script>
 
 <Header
