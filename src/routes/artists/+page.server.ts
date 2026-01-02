@@ -1,0 +1,8 @@
+import { artists } from 'phosart-common/server';
+import type { PageServerLoad } from './$types';
+
+export const load: PageServerLoad = async () => {
+	return {
+		artists: await artists()
+	};
+};

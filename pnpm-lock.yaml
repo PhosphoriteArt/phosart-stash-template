@@ -11,6 +11,12 @@ importers:
       '@fortawesome/fontawesome-free':
         specifier: ^7.1.0
         version: 7.1.0
+      array-shuffle:
+        specifier: ^4.0.0
+        version: 4.0.0
+      fuzzysort:
+        specifier: ^3.1.0
+        version: 3.1.0
       phosart-common:
         specifier: github:phosphoriteart/phosart-common#stable
         version: https://codeload.github.com/phosphoriteart/phosart-common/tar.gz/a232da8b5a31efe539f11b2993fabcb4f3fdac77(svelte@5.46.1)
@@ -81,6 +87,9 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.7.2
         version: 0.7.2(prettier-plugin-svelte@3.4.1(prettier@3.7.4)(svelte@5.46.1))(prettier@3.7.4)
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
       svelte:
         specifier: ^5.45.6
         version: 5.46.1
@@ -1207,6 +1216,10 @@ packages:
   aria-query@5.3.2:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
     engines: {node: '>= 0.4'}
+
+  array-shuffle@4.0.0:
+    resolution: {integrity: sha512-C7U1jQYpMCCQcjhPNtngE3Fki2+wFTaPzc5K4jJPY9Wwce9aQp8BwAkgyMhG6WIQEaE1qnrtkT6XoYkatxXTSQ==}
+    engines: {node: '>=20'}
 
   async-sema@3.1.1:
     resolution: {integrity: sha512-tLRNUXati5MFePdAk8dw7Qt7DpxPB60ofAgn8WRhW6a2rcimZnYBP9oxHiv0OHy+Wz7kPMG+t4LGdt31+4EmGg==}
@@ -3578,6 +3591,8 @@ snapshots:
   argparse@2.0.1: {}
 
   aria-query@5.3.2: {}
+
+  array-shuffle@4.0.0: {}
 
   async-sema@3.1.1: {}
 
