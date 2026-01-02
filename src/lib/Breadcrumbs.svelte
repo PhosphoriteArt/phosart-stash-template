@@ -7,9 +7,9 @@
 	export function galleryBreadcrumbs(
 		galleryPath: string[]
 	): Breadcrumb<'/tree/[...gallerypath]'>[] {
-		return galleryPath.map((p) => ({
+		return galleryPath.map((p, i) => ({
 			label: p.replace(/\.gallery$/, ''),
-			href: ['/tree/[...gallerypath]', { gallerypath: p }]
+			href: ['/tree/[...gallerypath]', { gallerypath: galleryPath.slice(0, i + 1).join('/') }]
 		}));
 	}
 </script>
