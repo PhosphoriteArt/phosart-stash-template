@@ -12,6 +12,8 @@
 	import { goto as go } from '$app/navigation';
 	import { page } from '$app/state';
 
+	import '@fortawesome/fontawesome-free/css/all.min.css';
+
 	let { children, data } = $props();
 
 	let search = $state('');
