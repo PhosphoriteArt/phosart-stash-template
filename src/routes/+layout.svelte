@@ -33,7 +33,7 @@
 				artist: { action: { makeHref: (a) => resolve('/artists/[name]', { name: a.name }) } },
 				character: {
 					action: {
-						makeHref: (c) => resolve('/characters/[name]', { name: normalizeCharacter(c).name })
+						makeHref: (c) => resolve('/characters/[name]', { name: c.name })
 					}
 				},
 				permalink: {
