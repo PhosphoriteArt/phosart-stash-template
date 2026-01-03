@@ -1,6 +1,7 @@
 import { galleries } from 'phosart-common/server';
 import type { PageServerLoad, EntryGenerator } from './$types';
-import { asTree, pathView } from '$lib/tree';
+import { asTree } from '$lib/tree';
+import { pathView } from 'phosart-common/util';
 
 export const load: PageServerLoad = async ({ params }) => {
 	return {

@@ -1,23 +1,18 @@
-import { galleries } from 'phosart-common/server';
+import { allPieces, getPieceBySlug } from 'phosart-common/server';
 import type { PageServerLoad, EntryGenerator } from './$types';
-import { asRecord } from '$lib/util';
+import { error } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ params }) => {
+	const p = await getPieceBySlug(params.slug);
+	if (!p) {
+		return error(404, `Piece with slug ${params.slug} not found`)
+	}
 	return {
 		...params,
-		piece: asRecord(
-			Object.values(await galleries()).flatMap((g) => g.pieces),
-			(p) => p.slug
-		)[params.slug]
+		piece: p
 	};
 };
 
 export const entries: EntryGenerator = async () => {
-	return [
-		...new Set(
-			Object.values(await galleries())
-				.flatMap((g) => g.pieces)
-				.map((p) => p.slug)
-		)
-	].map((slug) => ({ slug }));
+	return Object.values(await allPieces()).map((p) => ({ slug: p.slug }));
 };

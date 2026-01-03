@@ -14,7 +14,10 @@
 <div class="flex flex-col items-center">
 	<div class="max-w-8/12 overflow-hidden rounded-2xl">
 		<HighResContext>
-			<Image alt={data.piece.alt} picture={data.piece.image.full} />
+			<Image
+				alt={alt ? data.piece.alts![alt]!.alt : data.piece.alt}
+				picture={alt ? data.piece.alts![alt]!.image.full : data.piece.image.full}
+			/>
 		</HighResContext>
 	</div>
 	<div>

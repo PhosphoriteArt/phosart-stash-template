@@ -1,32 +1,27 @@
-import { deduplicateBy } from '$lib/util';
 import { normalizeCharacter } from 'phosart-common/util';
 import type { PageServerLoad, EntryGenerator } from './$types';
-import { characters, galleries } from 'phosart-common/server';
+import { allPieces, characters, filter, getAllCharacters } from 'phosart-common/server';
 
 export const load: PageServerLoad = async ({ params }) => {
-	const allPieces = deduplicateBy(
-		Object.values(await galleries()).flatMap((g) => g.pieces),
-		(p) => p.slug
-	);
-
 	const allCharacters = await characters();
+
+	const normalizedCharacter = normalizeCharacter(
+		params.from ? { from: params.from, name: params.name } : params.name,
+		allCharacters
+	);
+	const filtered = filter(
+		await allPieces(),
+		{ type: 'character', resource: normalizedCharacter },
+		{ sorted: true }
+	);
 
 	return {
 		...params,
-		character: normalizeCharacter(
-			params.from ? { from: params.from, name: params.name } : params.name,
-			allCharacters
-		),
-		piecesWithCharacter: allPieces.filter((p) =>
-			p.characters
-				.map((ch) => normalizeCharacter(ch))
-				.some(
-					(ch) => ch.name === params.name && (ch.from === params.from || (!ch.from && !params.from))
-				)
-		)
+		character: normalizedCharacter,
+		piecesWithCharacter: filtered
 	};
 };
 
 export const entries: EntryGenerator = async () => {
-	return Object.keys(await characters()).map((name) => ({ name }));
+	return (await getAllCharacters()).map((ch) => ({ name: ch.name, from: ch.name }));
 };

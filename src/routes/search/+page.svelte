@@ -3,7 +3,7 @@
 	import Header from '$lib/Header.svelte';
 	import { Gallery } from 'phosart-common';
 	import { browser } from '$app/environment';
-	import { executeSearch } from '$lib/search.js';
+	import { executeSearch } from 'phosart-common/util';
 
 	const { data } = $props();
 

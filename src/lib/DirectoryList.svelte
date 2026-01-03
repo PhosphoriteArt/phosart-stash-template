@@ -1,6 +1,6 @@
 <script lang="ts">
 	import GalleryTile from '$lib/GalleryTile.svelte';
-	import type { FolderElement, GalleryElement, GalleryTree } from '$lib/tree';
+	import type { FolderElement, GalleryElement, GalleryTree } from 'phosart-common/util';
 	import Tile from './Tile.svelte';
 
 	interface Props {

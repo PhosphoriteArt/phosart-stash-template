@@ -1,13 +1,12 @@
-import { galleries } from 'phosart-common/server';
+import { allPieces } from 'phosart-common/server';
+import { deduplicateBy } from 'phosart-common/util';
 import type { PageServerLoad } from './$types';
 import type { ArtPiece } from 'phosart-common/util';
 import { arrayToShuffled } from 'array-shuffle';
-import { deduplicateBy } from '$lib/util';
 
 export const load: PageServerLoad = async () => {
 	// Create index [tag name => [list of pieces with that tag]]
-	const allGalleries = Object.values(await galleries())
-		.flatMap((g) => g.pieces)
+	const allGalleries = Object.values(await allPieces())
 		.flatMap((p) => p.tags.map((t) => [t, p] as const))
 		.reduce<Record<string, ArtPiece[]>>(
 			(acc, [t, p]) => ({ ...acc, [t]: deduplicateBy([...(acc[t] ?? []), p], (p) => p.slug) }),
