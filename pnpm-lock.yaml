@@ -28,7 +28,7 @@ importers:
         version: https://codeload.github.com/phosphoriteart/phosart-common/tar.gz/274e7130ec75218a0771d5181e5b1b7a2f28feec(svelte@5.46.1)
       phosart-devtool:
         specifier: github:phosphoriteart/phosart-devtools#stable
-        version: https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/4c4a9f226686535617a95898780f905201abb858(svelte@5.46.1)
+        version: https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/a1857730fc453e7c2af36a398a3be192ba280ea8(svelte@5.46.1)
     devDependencies:
       '@dotenvx/dotenvx':
         specifier: ^1.51.4
@@ -2160,8 +2160,8 @@ packages:
     peerDependencies:
       svelte: ^5.0.0
 
-  phosart-devtool@https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/4c4a9f226686535617a95898780f905201abb858:
-    resolution: {tarball: https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/4c4a9f226686535617a95898780f905201abb858}
+  phosart-devtool@https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/a1857730fc453e7c2af36a398a3be192ba280ea8:
+    resolution: {tarball: https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/a1857730fc453e7c2af36a398a3be192ba280ea8}
     version: 0.2.1
     hasBin: true
 
@@ -4711,7 +4711,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  phosart-devtool@https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/4c4a9f226686535617a95898780f905201abb858(svelte@5.46.1):
+  phosart-devtool@https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/a1857730fc453e7c2af36a398a3be192ba280ea8(svelte@5.46.1):
     dependencies:
       '@atproto/api': 0.18.9
       '@atproto/common-web': 0.4.8
