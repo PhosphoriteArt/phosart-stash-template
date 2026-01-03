@@ -4,6 +4,8 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+pnpmfileChecksum: sha256-vyo8vXPoAV3s1cyBDF0eLmKLzGsU8j0OHlpSgYLIdU0=
+
 importers:
 
   .:
@@ -24,7 +26,7 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0
       phosart-common:
-        specifier: github:phosphoriteart/phosart-common#stable
+        specifier: git+https://github.com/phosphoriteart/phosart-common.git#stable
         version: https://codeload.github.com/phosphoriteart/phosart-common/tar.gz/b963f542f7ba6951369079aae8eb01d5f88a6d6d(svelte@5.46.1)
     devDependencies:
       '@dotenvx/dotenvx':
@@ -82,8 +84,8 @@ importers:
         specifier: ^16.2.7
         version: 16.2.7
       phosart-devtool:
-        specifier: github:phosphoriteart/phosart-devtools#stable
-        version: https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/73ae7e2adab0d9718af392ecf7d6d8d359da8fb0(svelte@5.46.1)
+        specifier: git+https://github.com/phosphoriteart/phosart-devtools.git#stable
+        version: https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/d1ea0add807ae54015317ee3f981af53c874cff1(svelte@5.46.1)
       prettier:
         specifier: ^3.7.4
         version: 3.7.4
@@ -120,14 +122,14 @@ packages:
   '@atproto/api@0.18.9':
     resolution: {integrity: sha512-ft+0+sczS0qsoxwjqO1VhCXSNG792QEr+uQ91OCc36DTa3sPtaTPL7yNOVTDyEHaYDfp8tYN4v+Pq5/bzz3EpA==}
 
-  '@atproto/common-web@0.4.8':
-    resolution: {integrity: sha512-2YDVTYAXmd8UStebscDglisrxT5q7qt+0Fbf2zpkOITeNEEXCeTcoE0X369/ssdPtiw4CMq2rGHDH003SO7bdQ==}
+  '@atproto/common-web@0.4.9':
+    resolution: {integrity: sha512-RGt1rUjVC8FEUlF5JQyN3xYlqZJbFTN0XSBBxl+HozjZGhhVtAVFGa+F+TR6BCVs7q7TcitOv/y/YWz4jJWn9g==}
 
-  '@atproto/lex-data@0.0.4':
-    resolution: {integrity: sha512-ziWY8R4wJ0NGDSlt+gzPxMsIh1DXFeLt+lsBoVc6wPaJamCxngwWAxONuQ3p9oRE6zR/gXsCOdtZAH5yjWW5ag==}
+  '@atproto/lex-data@0.0.5':
+    resolution: {integrity: sha512-nasD4eo2wKLyhHozC0vy7Jhp/fBwCKnYhQQogYtraUlT9il6lK1drhT8CNpWlglOhb0T73jLG5WpfNsPp6Pr/w==}
 
-  '@atproto/lex-json@0.0.4':
-    resolution: {integrity: sha512-BTBnRZUW7XFCbJnuSMvUZSLXYP6RK/RdTg68sySoK+Hg0A5k43uniA7xtFhJFZCfZ96brl3k/ykdVh76LizQ8Q==}
+  '@atproto/lex-json@0.0.5':
+    resolution: {integrity: sha512-wgmET7fIWi77jxqHnrr0RvpAGhiFqIqjdO9Py3JK2whHMITyYgFRU0HfEtIeWSzx0Vb9z0S7F/fQW3P3gqb+yA==}
 
   '@atproto/lexicon@0.6.0':
     resolution: {integrity: sha512-5veb8aD+J5M0qszLJ+73KSFsFrJBgAY/nM1TSAJvGY7fNc9ZAT+PSUlmIyrdye9YznAZ07yktalls/TwNV7cHQ==}
@@ -2160,9 +2162,9 @@ packages:
     peerDependencies:
       svelte: ^5.0.0
 
-  phosart-devtool@https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/73ae7e2adab0d9718af392ecf7d6d8d359da8fb0:
-    resolution: {tarball: https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/73ae7e2adab0d9718af392ecf7d6d8d359da8fb0}
-    version: 0.2.15
+  phosart-devtool@https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/d1ea0add807ae54015317ee3f981af53c874cff1:
+    resolution: {tarball: https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/d1ea0add807ae54015317ee3f981af53c874cff1}
+    version: 0.2.18
     hasBin: true
 
   picocolors@1.1.1:
@@ -2713,7 +2715,7 @@ snapshots:
 
   '@atproto/api@0.18.9':
     dependencies:
-      '@atproto/common-web': 0.4.8
+      '@atproto/common-web': 0.4.9
       '@atproto/lexicon': 0.6.0
       '@atproto/syntax': 0.4.2
       '@atproto/xrpc': 0.7.7
@@ -2722,13 +2724,13 @@ snapshots:
       tlds: 1.261.0
       zod: 3.25.76
 
-  '@atproto/common-web@0.4.8':
+  '@atproto/common-web@0.4.9':
     dependencies:
-      '@atproto/lex-data': 0.0.4
-      '@atproto/lex-json': 0.0.4
+      '@atproto/lex-data': 0.0.5
+      '@atproto/lex-json': 0.0.5
       zod: 3.25.76
 
-  '@atproto/lex-data@0.0.4':
+  '@atproto/lex-data@0.0.5':
     dependencies:
       '@atproto/syntax': 0.4.2
       multiformats: 9.9.0
@@ -2736,14 +2738,14 @@ snapshots:
       uint8arrays: 3.0.0
       unicode-segmenter: 0.14.5
 
-  '@atproto/lex-json@0.0.4':
+  '@atproto/lex-json@0.0.5':
     dependencies:
-      '@atproto/lex-data': 0.0.4
+      '@atproto/lex-data': 0.0.5
       tslib: 2.8.1
 
   '@atproto/lexicon@0.6.0':
     dependencies:
-      '@atproto/common-web': 0.4.8
+      '@atproto/common-web': 0.4.9
       '@atproto/syntax': 0.4.2
       iso-datestring-validator: 2.2.2
       multiformats: 9.9.0
@@ -4711,10 +4713,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  phosart-devtool@https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/73ae7e2adab0d9718af392ecf7d6d8d359da8fb0(svelte@5.46.1):
+  phosart-devtool@https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/d1ea0add807ae54015317ee3f981af53c874cff1(svelte@5.46.1):
     dependencies:
       '@atproto/api': 0.18.9
-      '@atproto/common-web': 0.4.8
+      '@atproto/common-web': 0.4.9
       '@atproto/lexicon': 0.6.0
       '@atproto/xrpc': 0.7.7
       '@ffmpeg-installer/ffmpeg': 1.1.0
