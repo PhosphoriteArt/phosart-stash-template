@@ -2,5 +2,8 @@
 	"$schema": "https://raw.githubusercontent.com/PhosphoriteArt/phosart-common/refs/heads/main/settings.schema.json",
 	"title": { "type": "string" },
 	"subtitle": { "type": "string" },
-	"attribution": { "type": "string" }
+	"attribution": { "type": "string" },
+	"featured-tags-gallery": { "type": "tag-list" },
+	"featured-tags-characters": { "type": "tag-list" },
+	"featured-tags-artist": { "type": "tag-list" }
 }

@@ -1,8 +1,9 @@
 import { normalizeCharacter } from 'phosart-common/util';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { allPieces, characters, filter, getAllCharacters } from 'phosart-common/server';
+import { getFeaturedPieces } from '$lib/featured';
 
-export const load: PageServerLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ params, parent }) => {
 	const allCharacters = await characters();
 
 	const normalizedCharacter = normalizeCharacter(
@@ -15,10 +16,12 @@ export const load: PageServerLoad = async ({ params }) => {
 		{ sorted: true }
 	);
 
+	const { config } = await parent();
+
 	return {
 		...params,
 		character: normalizedCharacter,
-		piecesWithCharacter: filtered,
+		piecesWithCharacter: getFeaturedPieces(filtered, config['featured-tags-characters'] ?? []),
 		isMyCharacter: !!normalizedCharacter.info
 	};
 };
