@@ -10,7 +10,7 @@
 	const { title, subtitle, breadcrumb }: Props = $props();
 </script>
 
-<div class="mt-8 mb-12 flex flex-col w-full justify-center text-4xl">
+<div class="mt-8 mb-12 flex flex-col w-full items-center text-4xl">
 	<h1 class="text-5xl font-extralight">{title}</h1>
 	<h2 class="text-xl font-extralight italic">{subtitle || ' '}</h2>
 </div>
