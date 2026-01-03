@@ -175,6 +175,7 @@ main() {
 	export PATH="${GIT_DIR}/bin:${NODE_DIR}/bin:${PATH}"
 	cd "$ROOT_DIR"
 	pnpm install
+	pnpm update phosart-devtool phosart-common phosart-bsky
 	pnpm run editpreview
 }
 
