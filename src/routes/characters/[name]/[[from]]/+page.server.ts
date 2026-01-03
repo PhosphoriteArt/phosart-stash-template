@@ -18,7 +18,8 @@ export const load: PageServerLoad = async ({ params }) => {
 	return {
 		...params,
 		character: normalizedCharacter,
-		piecesWithCharacter: filtered
+		piecesWithCharacter: filtered,
+		isMyCharacter: !!normalizedCharacter.info
 	};
 };
 

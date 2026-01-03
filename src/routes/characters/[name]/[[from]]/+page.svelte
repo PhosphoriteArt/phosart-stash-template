@@ -13,6 +13,12 @@
 	setPageTitle
 />
 
+<svelte:head>
+	{#if !data.isMyCharacter}
+		<meta name="robots" content="noindex" />
+	{/if}
+</svelte:head>
+
 <Header
 	title={data.config.title}
 	subtitle={data.config.subtitle}
