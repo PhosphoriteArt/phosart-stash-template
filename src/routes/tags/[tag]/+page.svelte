@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import Header from '$lib/Header.svelte';
-	import { Gallery } from 'phosart-common';
+	import { Gallery, OpengraphMeta } from 'phosart-common';
 
 	const { data } = $props();
 </script>
+
+<OpengraphMeta type="tag" resource={data.tag} setPageTitle siteName={data.config.title} />
 
 <Header
 	title={data.config.title}

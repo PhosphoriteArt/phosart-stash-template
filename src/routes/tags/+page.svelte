@@ -5,6 +5,10 @@
 	const { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Tags | {data.config.title}</title>
+</svelte:head>
+
 <Header
 	title={data.config.title}
 	subtitle={data.config.subtitle}

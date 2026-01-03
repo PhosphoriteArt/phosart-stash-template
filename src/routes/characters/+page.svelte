@@ -8,6 +8,12 @@
 	const { data } = $props();
 </script>
 
+<svelte:head>
+	<title>
+		Characters | {data.config.title}
+	</title>
+</svelte:head>
+
 <Header
 	title={data.config.title}
 	subtitle={data.config.subtitle}

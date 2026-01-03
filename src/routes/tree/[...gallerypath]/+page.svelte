@@ -7,6 +7,10 @@
 	const path = $derived(data.gallerypath.split('/'));
 </script>
 
+<svelte:head>
+	<title>/{path.join('/')} | {data.config.title}</title>
+</svelte:head>
+
 <Header
 	title={data.config.title}
 	subtitle={data.config.subtitle}

@@ -24,7 +24,9 @@
 	useCharacterContext(data.characters);
 	// svelte-ignore state_referenced_locally
 	useArtistsContext(data.artists);
+	// svelte-ignore state_referenced_locally
 	setLibraryConfig({
+		siteName: data.config?.title ?? 'My Art Stash',
 		gallery: { DefaultPieceComponent: Card },
 		modal: {
 			chipOptionsByType: {

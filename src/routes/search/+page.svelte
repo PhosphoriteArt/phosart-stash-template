@@ -10,6 +10,10 @@
 	const results = $derived(executeSearch(page.state.query ?? '', data.allPieces));
 </script>
 
+<svelte:head>
+	<title>🔎 {page.state.query} | {data.config.title}</title>
+</svelte:head>
+
 <Header
 	title={data.config.title}
 	subtitle={data.config.subtitle}

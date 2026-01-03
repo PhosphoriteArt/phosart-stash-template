@@ -1,9 +1,14 @@
 import { galleries } from 'phosart-common/server';
 import type { PageServerLoad, EntryGenerator } from './$types';
+import { asRecord } from '$lib/util';
 
 export const load: PageServerLoad = async ({ params }) => {
 	return {
-		...params
+		...params,
+		piece: asRecord(
+			Object.values(await galleries()).flatMap((g) => g.pieces),
+			(p) => p.slug
+		)[params.slug]
 	};
 };
 

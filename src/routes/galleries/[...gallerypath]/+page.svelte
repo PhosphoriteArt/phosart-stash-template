@@ -7,6 +7,15 @@
 	const { data } = $props();
 </script>
 
+<svelte:head>
+	<title>
+		{data.gallerypath
+			.split('/')
+			.at(-1)
+			?.replace(/\.gallery$/, '') || 'Gallery'} | {data.config.title}
+	</title>
+</svelte:head>
+
 <Header
 	title={data.config.title}
 	subtitle={data.config.subtitle}

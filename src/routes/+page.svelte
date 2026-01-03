@@ -5,6 +5,10 @@
 	const { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Home | {data.config.title}</title>
+</svelte:head>
+
 <Header title={data.config.title} subtitle={data.config.subtitle} breadcrumb={[]} />
 
 <DirectoryList tree={data.galleryTree} path={[]} />
