@@ -3,7 +3,6 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import { resolve } from '$app/paths';
 	import {
-		normalizeCharacter,
 		setLibraryConfig,
 		useArtistsContext,
 		useCharacterContext
