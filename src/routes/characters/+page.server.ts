@@ -16,7 +16,10 @@ export const load: PageServerLoad = async () => {
 	);
 
 	return {
-		characters: allCharacters.map((v) => v.info).filter((v): v is Character => !!v),
+		characters: allCharacters
+			.map((v) => v.info)
+			.filter((v): v is Character => !!v)
+			.toSorted((c1, c2) => c1.index - c2.index),
 		others: othersWithGallery
 	};
 };
