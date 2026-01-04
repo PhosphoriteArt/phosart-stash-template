@@ -20,7 +20,7 @@ function rewriteGithub(record) {
 module.exports = {
 	hooks: {
 		readPackage: (pkg) => {
-			if (pkg.name === pjson.name || pkg.name.startsWith('phosart')) {
+			if (pkg.name && (pkg.name === pjson.name || pkg.name.startsWith('phosart'))) {
 				return {
 					...pkg,
 					dependencies: { ...rewriteGithub(pkg.dependencies) },

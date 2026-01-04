@@ -44,24 +44,24 @@
 {/if}
 
 <style lang="postcss">
-	@reference 'tailwindcss';
+	@reference '../routes/layout.css';
 
 	.tile {
-		@apply inline-flex flex-col overflow-hidden rounded-2xl bg-gray-700 p-2 select-none items-center;
+		@apply inline-flex flex-col overflow-hidden rounded-2xl bg-tile-bg p-2 select-none items-center;
 		&:hover {
-			@apply bg-gray-600;
+			@apply bg-tile-bg-hover;
 			& .nametag {
-				@apply bg-gray-500;
+				@apply bg-tile-nametag-bg-hover;
 			}
 		}
 
 		&:active {
 			& .nametag {
-				@apply bg-gray-800;
+				@apply bg-tile-nametag-bg;
 			}
 		}
 	}
 	.nametag {
-		@apply mx-3 my-1 mt-2 flex items-center justify-center rounded-2xl bg-gray-800 p-0.5 px-3;
+		@apply mx-3 my-1 mt-2 flex items-center justify-center rounded-2xl bg-tile-nametag-bg p-0.5 px-3;
 	}
 </style>

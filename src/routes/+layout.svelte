@@ -2,11 +2,7 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { resolve } from '$app/paths';
-	import {
-		setLibraryConfig,
-		useArtistsContext,
-		useCharacterContext
-	} from 'phosart-common/util';
+	import { setLibraryConfig, useArtistsContext, useCharacterContext } from 'phosart-common/util';
 	import Card from '$lib/ArtTile.svelte';
 	import { goto as go } from '$app/navigation';
 	import { page } from '$app/state';
@@ -65,12 +61,12 @@
 		class="flex items-stretch gap-x-2"
 	>
 		<div class="flex items-center">
-			<label for="search-{id}"><i class="fa-solid fa-search text-gray-400"></i></label>
+			<label for="search-{id}"><i class="fa-solid fa-search text-understated-400"></i></label>
 		</div>
 		<input
 			id="search-{id}"
 			placeholder={page.state.query ?? 'Search'}
-			class="border-0 border-b border-b-gray-700 bg-transparent outline-none"
+			class="border-0 border-b border-b-understated-border bg-transparent outline-none"
 			type="text"
 			bind:value={search}
 		/>
@@ -79,9 +75,9 @@
 				type="submit"
 				class:invisible={!search}
 				title="Execute"
-				class="h-full rounded-2xl {search ? 'cursor-pointer hover:bg-[#fff3]' : ''}"
+				class="h-full rounded-2xl {search ? 'cursor-pointer hover:bg-understated-highlight' : ''}"
 			>
-				<i class="fa-solid fa-chevron-right text-gray-400"></i>
+				<i class="fa-solid fa-chevron-right text-understated-text"></i>
 			</button>
 		</div>
 	</form>
@@ -91,7 +87,7 @@
 		{@render children()}
 	</div>
 </div>
-<div class="my-4 flex grow flex-col items-center justify-end text-gray-500">
+<div class="my-4 flex grow flex-col items-center justify-end text-attribution">
 	&copy; {data.config.attribution ?? ''}
 	{new Date().getFullYear()}
 </div>

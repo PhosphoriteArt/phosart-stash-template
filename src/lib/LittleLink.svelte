@@ -14,7 +14,7 @@
 
 <div class="mb-2 flex w-full justify-center text-center text-xl">
 	<a
-		class="text-gray-500 underline decoration-dashed hover:text-gray-400 hover:decoration-solid active:text-gray-300 {cls}"
+		class="text-understated-link underline decoration-dashed hover:text-understated-link-hover hover:decoration-solid active:text-understated-link-active {cls}"
 		href={resolve<T>(...href)}
 	>
 		{@render children?.()}
