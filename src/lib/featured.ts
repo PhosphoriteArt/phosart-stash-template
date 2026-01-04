@@ -1,5 +1,5 @@
-import { filter } from 'phosart-common/server';
-import { type ArtPiece, deduplicateBy } from 'phosart-common/util';
+import { filter } from '@phosart/common/server';
+import { type ArtPiece, deduplicateBy } from '@phosart/common/util';
 
 export function getFeaturedPieces(
 	all: ArtPiece[],

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from '$lib/Header.svelte';
-	import { OpengraphMeta, Image, HighResContext, Description } from 'phosart-common';
+	import { OpengraphMeta, Image, HighResContext, Description } from '@phosart/common';
 
 	const { data } = $props();
 

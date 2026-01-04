@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 	import { galleryBreadcrumbs } from '$lib/Breadcrumbs.svelte';
 	import Header from '$lib/Header.svelte';
-	import { Gallery } from 'phosart-common';
+	import { Gallery } from '@phosart/common';
 
 	const { data } = $props();
 </script>

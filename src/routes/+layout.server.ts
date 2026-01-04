@@ -6,7 +6,7 @@ import {
 	getAllCharacters,
 	readThemeConfig,
 	readThemeSchema
-} from 'phosart-common/server';
+} from '@phosart/common/server';
 import type { LayoutServerLoad } from './$types';
 import type { ThemeSchema } from '../data/generated-schema';
 

@@ -1,4 +1,4 @@
-import { allPieces, filter } from 'phosart-common/server';
+import { allPieces, filter } from '@phosart/common/server';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {

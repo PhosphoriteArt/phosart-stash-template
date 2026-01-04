@@ -1,6 +1,6 @@
-import { type Character } from 'phosart-common/util';
+import { type Character } from '@phosart/common/util';
 import type { PageServerLoad } from './$types';
-import { allPieces, filter, getAllCharacters } from 'phosart-common/server';
+import { allPieces, filter, getAllCharacters } from '@phosart/common/server';
 import { arrayToShuffled } from 'array-shuffle';
 
 export const load: PageServerLoad = async () => {

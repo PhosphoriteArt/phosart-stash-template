@@ -1,7 +1,7 @@
-import { galleries, getAllArtists } from 'phosart-common/server';
+import { galleries, getAllArtists } from '@phosart/common/server';
 import type { PageServerLoad } from './$types';
 import { arrayToShuffled } from 'array-shuffle';
-import { deduplicateBy, normalizeArtist } from 'phosart-common/util';
+import { deduplicateBy, normalizeArtist } from '@phosart/common/util';
 
 export const load: PageServerLoad = async () => {
 	const allArtists = await getAllArtists();

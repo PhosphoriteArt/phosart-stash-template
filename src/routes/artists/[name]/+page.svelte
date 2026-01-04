@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import Header from '$lib/Header.svelte';
-	import { Gallery } from 'phosart-common';
+	import { Gallery } from '@phosart/common';
 
 	const { data } = $props();
 </script>

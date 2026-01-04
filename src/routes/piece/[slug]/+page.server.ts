@@ -1,4 +1,4 @@
-import { allPieces, getPieceBySlug } from 'phosart-common/server';
+import { allPieces, getPieceBySlug } from '@phosart/common/server';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { error } from '@sveltejs/kit';
 

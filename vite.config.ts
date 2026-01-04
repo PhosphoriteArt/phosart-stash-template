@@ -6,7 +6,7 @@ export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
 	build: {
 		rollupOptions: {
-			external: ['phosart-common/server']
+			external: ['@phosart/common/server']
 		}
 	}
 });

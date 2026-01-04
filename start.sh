@@ -174,7 +174,8 @@ main() {
 
 	export PATH="${GIT_DIR}/bin:${NODE_DIR}/bin:${PATH}"
 	cd "$ROOT_DIR"
-	pnpm install --fix-lockfile
+	pnpm install
+	pnpm update '@phosart/common' '@phosart/devtool'
 	pnpm run editpreview
 }
 

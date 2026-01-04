@@ -146,5 +146,6 @@ Ensure-Git
 
 $env:Path = "$(Join-Path $GitDir "cmd");$NodeDir;$env:Path"
 Set-Location $Root
-& (Join-Path $NodeDir "pnpm.cmd") install --fix-lockfile
+& (Join-Path $NodeDir "pnpm.cmd") install
+& (Join-Path $NodeDir "pnpm.cmd") update "@phosart/common" "@phosart/devtool"
 & (Join-Path $NodeDir "pnpm.cmd") run editpreview

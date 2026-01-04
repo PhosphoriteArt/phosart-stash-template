@@ -2,8 +2,8 @@
 	import { resolve } from '$app/paths';
 	import GalleryTile from '$lib/GalleryTile.svelte';
 	import Header from '$lib/Header.svelte';
-	import { Image } from 'phosart-common';
-	import type { Character } from 'phosart-common/util';
+	import { Image } from '@phosart/common';
+	import type { Character } from '@phosart/common/util';
 
 	const { data } = $props();
 </script>

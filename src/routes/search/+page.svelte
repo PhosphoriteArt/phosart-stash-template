@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import Header from '$lib/Header.svelte';
-	import { Gallery } from 'phosart-common';
+	import { Gallery } from '@phosart/common';
 	import { browser } from '$app/environment';
-	import { executeSearch } from 'phosart-common/util';
+	import { executeSearch } from '@phosart/common/util';
 
 	const { data } = $props();
 

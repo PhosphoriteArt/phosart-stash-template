@@ -1,6 +1,6 @@
-import { allPieces, filter, getAllArtists } from 'phosart-common/server';
+import { allPieces, filter, getAllArtists } from '@phosart/common/server';
 import type { PageServerLoad, EntryGenerator } from './$types';
-import { normalizeArtist } from 'phosart-common/util';
+import { normalizeArtist } from '@phosart/common/util';
 import { getFeaturedPieces } from '$lib/featured';
 
 export const load: PageServerLoad = async ({ params, parent }) => {

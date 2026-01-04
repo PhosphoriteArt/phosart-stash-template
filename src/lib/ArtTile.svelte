@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { ArtPiece } from 'phosart-common/util';
+	import type { ArtPiece } from '@phosart/common/util';
 	import Tile from './Tile.svelte';
-	import { Image } from 'phosart-common';
+	import { Image } from '@phosart/common';
 
 	interface Props {
 		piece: ArtPiece;

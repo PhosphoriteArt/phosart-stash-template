@@ -4,8 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-pnpmfileChecksum: sha256-vyo8vXPoAV3s1cyBDF0eLmKLzGsU8j0OHlpSgYLIdU0=
-
 importers:
 
   .:
@@ -13,6 +11,9 @@ importers:
       '@fortawesome/fontawesome-free':
         specifier: ^7.1.0
         version: 7.1.0
+      '@phosart/common':
+        specifier: ^0.4.23
+        version: 0.4.23(svelte@5.46.1)
       array-shuffle:
         specifier: ^4.0.0
         version: 4.0.0
@@ -25,9 +26,6 @@ importers:
       fuzzysort:
         specifier: ^3.1.0
         version: 3.1.0
-      phosart-common:
-        specifier: git+https://github.com/phosphoriteart/phosart-common.git#stable
-        version: https://codeload.github.com/phosphoriteart/phosart-common/tar.gz/1bcd18213a3e1c83cd01be9fc489ef79358a2c35(svelte@5.46.1)
     devDependencies:
       '@dotenvx/dotenvx':
         specifier: ^1.51.4
@@ -38,6 +36,9 @@ importers:
       '@eslint/js':
         specifier: ^9.39.1
         version: 9.39.2
+      '@phosart/devtool':
+        specifier: ^0.2.35
+        version: 0.2.35(svelte@5.46.1)
       '@sveltejs/adapter-vercel':
         specifier: ^6.2.0
         version: 6.2.0(@sveltejs/kit@2.49.2(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))(rollup@4.54.0)
@@ -83,9 +84,6 @@ importers:
       lint-staged:
         specifier: ^16.2.7
         version: 16.2.7
-      phosart-devtool:
-        specifier: git+https://github.com/phosphoriteart/phosart-devtools.git#stable
-        version: https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/6929e598e3ab3ef67e842125113469e6e0fcadbc(svelte@5.46.1)
       prettier:
         specifier: ^3.7.4
         version: 3.7.4
@@ -804,6 +802,20 @@ packages:
   '@noble/hashes@1.8.0':
     resolution: {integrity: sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==}
     engines: {node: ^14.21.3 || >=16}
+
+  '@phosart/bsky@0.2.1':
+    resolution: {integrity: sha512-9jv1xNwaqaA6FK113sp2jI/PY6UoEkXA/+Yo6x1crZQSujcd6T4mJ2H9fbxwl3rWYKnpNwOPtjNopBbHoPFgYQ==}
+    peerDependencies:
+      svelte: ^5.0.0
+
+  '@phosart/common@0.4.23':
+    resolution: {integrity: sha512-rPXjPPrIzah7ZCHQXgKp2391aHYGWolBYjW18YpNPVCYmUo4YhRisEcYsSpvc4Odm5MbhX67QhzSvVrcmR0PYg==}
+    peerDependencies:
+      svelte: ^5.0.0
+
+  '@phosart/devtool@0.2.35':
+    resolution: {integrity: sha512-fL3oRbv+Ivmf/Ato3ueb6MaB3pgHiuDzIbf9oGOSE2Uvr3G3BthnDUX36Sq6pX2peQyoA72JQwHoUXO2VogdjQ==}
+    hasBin: true
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
@@ -2150,23 +2162,6 @@ packages:
     resolution: {integrity: sha512-oWyT4gICAu+kaA7QWk/jvCHWarMKNs6pXOGWKDTr7cw4IGcUbW+PeTfbaQiLGheFRpjo6O9J0PmyMfQPjH71oA==}
     engines: {node: 20 || >=22}
 
-  phosart-bsky@https://codeload.github.com/phosphoriteart/phosart-bsky/tar.gz/33e1697e1bf7045ba28e9fec9e3b31260843d84d:
-    resolution: {tarball: https://codeload.github.com/phosphoriteart/phosart-bsky/tar.gz/33e1697e1bf7045ba28e9fec9e3b31260843d84d}
-    version: 0.2.1
-    peerDependencies:
-      svelte: ^5.0.0
-
-  phosart-common@https://codeload.github.com/phosphoriteart/phosart-common/tar.gz/1bcd18213a3e1c83cd01be9fc489ef79358a2c35:
-    resolution: {tarball: https://codeload.github.com/phosphoriteart/phosart-common/tar.gz/1bcd18213a3e1c83cd01be9fc489ef79358a2c35}
-    version: 0.4.20
-    peerDependencies:
-      svelte: ^5.0.0
-
-  phosart-devtool@https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/6929e598e3ab3ef67e842125113469e6e0fcadbc:
-    resolution: {tarball: https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/6929e598e3ab3ef67e842125113469e6e0fcadbc}
-    version: 0.2.23
-    hasBin: true
-
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -2705,8 +2700,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.3.4:
-    resolution: {integrity: sha512-Zw/uYiiyF6pUT1qmKbZziChgNPRu+ZRneAsMUDU6IwmXdWt5JwcUfy2bvLOCUtz5UniaN/Zx5aFttZYbYc7O/A==}
+  zod@4.3.5:
+    resolution: {integrity: sha512-k7Nwx6vuWx1IJ9Bjuf4Zt1PEllcwe7cls3VNzm4CQ1/hgtFUK2bRNG3rvnpPUhFjmqJKAKtjV576KnUkHocg/g==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -3219,6 +3214,79 @@ snapshots:
       '@noble/hashes': 1.8.0
 
   '@noble/hashes@1.8.0': {}
+
+  '@phosart/bsky@0.2.1(svelte@5.46.1)':
+    dependencies:
+      '@atproto/api': 0.18.9
+      mongodb: 7.0.0
+      svelte: 5.46.1
+    transitivePeerDependencies:
+      - '@aws-sdk/credential-providers'
+      - '@mongodb-js/zstd'
+      - gcp-metadata
+      - kerberos
+      - mongodb-client-encryption
+      - snappy
+      - socks
+
+  '@phosart/common@0.4.23(svelte@5.46.1)':
+    dependencies:
+      '@fortawesome/fontawesome-free': 7.1.0
+      async-sema: 3.1.1
+      fuzzysort: 3.1.0
+      glob: 13.0.0
+      msgpackr: 1.11.8
+      rehype-sanitize: 6.0.0
+      rehype-stringify: 10.0.1
+      remark-gfm: 4.0.1
+      remark-parse: 11.0.0
+      remark-rehype: 11.1.2
+      sharp: 0.34.5
+      sharp-phash: 2.2.0(sharp@0.34.5)
+      svelte: 5.46.1
+      tslog: 4.10.2
+      unified: 11.0.5
+      yaml: 2.8.2
+      zod: 4.3.5
+    transitivePeerDependencies:
+      - supports-color
+
+  '@phosart/devtool@0.2.35(svelte@5.46.1)':
+    dependencies:
+      '@atproto/api': 0.18.9
+      '@atproto/common-web': 0.4.9
+      '@atproto/lexicon': 0.6.0
+      '@atproto/xrpc': 0.7.7
+      '@ffmpeg-installer/ffmpeg': 1.1.0
+      '@floating-ui/dom': 1.7.4
+      '@fortawesome/fontawesome-free': 7.1.0
+      '@monaco-editor/loader': 1.7.0
+      '@phosart/bsky': 0.2.1(svelte@5.46.1)
+      '@phosart/common': 0.4.23(svelte@5.46.1)
+      async-sema: 3.1.1
+      chrono-node: 2.9.0
+      es-toolkit: 1.43.0
+      fuzzysort: 3.1.0
+      luxon: 3.7.2
+      monaco-editor: 0.55.1
+      msgpackr: 1.11.8
+      opener: 1.5.2
+      sharp: 0.34.5
+      sharp-phash: 2.2.0(sharp@0.34.5)
+      svelte-loading-spinners: 0.3.6
+      tslog: 4.10.2
+      yaml: 2.8.2
+      zod: 4.3.5
+    transitivePeerDependencies:
+      - '@aws-sdk/credential-providers'
+      - '@mongodb-js/zstd'
+      - gcp-metadata
+      - kerberos
+      - mongodb-client-encryption
+      - snappy
+      - socks
+      - supports-color
+      - svelte
 
   '@polka/url@1.0.0-next.29': {}
 
@@ -4677,79 +4745,6 @@ snapshots:
       lru-cache: 11.2.4
       minipass: 7.1.2
 
-  phosart-bsky@https://codeload.github.com/phosphoriteart/phosart-bsky/tar.gz/33e1697e1bf7045ba28e9fec9e3b31260843d84d(svelte@5.46.1):
-    dependencies:
-      '@atproto/api': 0.18.9
-      mongodb: 7.0.0
-      svelte: 5.46.1
-    transitivePeerDependencies:
-      - '@aws-sdk/credential-providers'
-      - '@mongodb-js/zstd'
-      - gcp-metadata
-      - kerberos
-      - mongodb-client-encryption
-      - snappy
-      - socks
-
-  phosart-common@https://codeload.github.com/phosphoriteart/phosart-common/tar.gz/1bcd18213a3e1c83cd01be9fc489ef79358a2c35(svelte@5.46.1):
-    dependencies:
-      '@fortawesome/fontawesome-free': 7.1.0
-      async-sema: 3.1.1
-      fuzzysort: 3.1.0
-      glob: 13.0.0
-      msgpackr: 1.11.8
-      rehype-sanitize: 6.0.0
-      rehype-stringify: 10.0.1
-      remark-gfm: 4.0.1
-      remark-parse: 11.0.0
-      remark-rehype: 11.1.2
-      sharp: 0.34.5
-      sharp-phash: 2.2.0(sharp@0.34.5)
-      svelte: 5.46.1
-      tslog: 4.10.2
-      unified: 11.0.5
-      yaml: 2.8.2
-      zod: 4.3.4
-    transitivePeerDependencies:
-      - supports-color
-
-  phosart-devtool@https://codeload.github.com/phosphoriteart/phosart-devtools/tar.gz/6929e598e3ab3ef67e842125113469e6e0fcadbc(svelte@5.46.1):
-    dependencies:
-      '@atproto/api': 0.18.9
-      '@atproto/common-web': 0.4.9
-      '@atproto/lexicon': 0.6.0
-      '@atproto/xrpc': 0.7.7
-      '@ffmpeg-installer/ffmpeg': 1.1.0
-      '@floating-ui/dom': 1.7.4
-      '@fortawesome/fontawesome-free': 7.1.0
-      '@monaco-editor/loader': 1.7.0
-      async-sema: 3.1.1
-      chrono-node: 2.9.0
-      es-toolkit: 1.43.0
-      fuzzysort: 3.1.0
-      luxon: 3.7.2
-      monaco-editor: 0.55.1
-      msgpackr: 1.11.8
-      opener: 1.5.2
-      phosart-bsky: https://codeload.github.com/phosphoriteart/phosart-bsky/tar.gz/33e1697e1bf7045ba28e9fec9e3b31260843d84d(svelte@5.46.1)
-      phosart-common: https://codeload.github.com/phosphoriteart/phosart-common/tar.gz/1bcd18213a3e1c83cd01be9fc489ef79358a2c35(svelte@5.46.1)
-      sharp: 0.34.5
-      sharp-phash: 2.2.0(sharp@0.34.5)
-      svelte-loading-spinners: 0.3.6
-      tslog: 4.10.2
-      yaml: 2.8.2
-      zod: 4.3.4
-    transitivePeerDependencies:
-      - '@aws-sdk/credential-providers'
-      - '@mongodb-js/zstd'
-      - gcp-metadata
-      - kerberos
-      - mongodb-client-encryption
-      - snappy
-      - socks
-      - supports-color
-      - svelte
-
   picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
@@ -5263,6 +5258,6 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.3.4: {}
+  zod@4.3.5: {}
 
   zwitch@2.0.4: {}

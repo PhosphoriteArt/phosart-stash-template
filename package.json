@@ -12,13 +12,14 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"edit": "cross-env ORIGIN=http://127.0.0.1:3000 BODY_SIZE_LIMIT=Infinity phosart-devtool",
-		"editpreview": "concurrently -i \"pnpm run dev --port 15483\" \"dotenvx run -- cross-env PORT=15482 PREVIEWPORT=15483 ORIGIN=http://127.0.0.1:15482 BODY_SIZE_LIMIT=Infinity phosart-devtool\""
+		"edit": "cross-env ORIGIN=http://127.0.0.1:3000 BODY_SIZE_LIMIT=Infinity devtool",
+		"editpreview": "concurrently -i \"pnpm run dev --port 15483\" \"dotenvx run -- cross-env PORT=15482 PREVIEWPORT=15483 ORIGIN=http://127.0.0.1:15482 BODY_SIZE_LIMIT=Infinity devtool\""
 	},
 	"devDependencies": {
 		"@dotenvx/dotenvx": "^1.51.4",
 		"@eslint/compat": "^1.4.0",
 		"@eslint/js": "^9.39.1",
+		"@phosart/devtool": "^0.2.35",
 		"@sveltejs/adapter-vercel": "^6.2.0",
 		"@sveltejs/kit": "^2.49.1",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
@@ -34,7 +35,6 @@
 		"globals": "^16.5.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.2.7",
-		"phosart-devtool": "github:phosphoriteart/phosart-devtools#stable",
 		"prettier": "^3.7.4",
 		"prettier-plugin-svelte": "^3.4.0",
 		"prettier-plugin-tailwindcss": "^0.7.2",
@@ -48,10 +48,10 @@
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^7.1.0",
+		"@phosart/common": "^0.4.23",
 		"array-shuffle": "^4.0.0",
 		"color": "^5.0.3",
 		"es-toolkit": "^1.43.0",
-		"fuzzysort": "^3.1.0",
-		"phosart-common": "github:phosphoriteart/phosart-common#stable"
+		"fuzzysort": "^3.1.0"
 	}
 }

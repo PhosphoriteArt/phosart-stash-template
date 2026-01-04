@@ -1,7 +1,7 @@
-import { allPieces } from 'phosart-common/server';
-import { deduplicateBy } from 'phosart-common/util';
+import { allPieces } from '@phosart/common/server';
+import { deduplicateBy } from '@phosart/common/util';
 import type { PageServerLoad } from './$types';
-import type { ArtPiece } from 'phosart-common/util';
+import type { ArtPiece } from '@phosart/common/util';
 import { arrayToShuffled } from 'array-shuffle';
 
 export const load: PageServerLoad = async () => {

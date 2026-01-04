@@ -1,4 +1,4 @@
-import { filter, galleries } from 'phosart-common/server';
+import { filter, galleries } from '@phosart/common/server';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { getFeaturedPieces } from '$lib/featured';
 

@@ -1,6 +1,6 @@
-import { normalizeCharacter } from 'phosart-common/util';
+import { normalizeCharacter } from '@phosart/common/util';
 import type { PageServerLoad, EntryGenerator } from './$types';
-import { allPieces, characters, filter, getAllCharacters } from 'phosart-common/server';
+import { allPieces, characters, filter, getAllCharacters } from '@phosart/common/server';
 import { getFeaturedPieces } from '$lib/featured';
 
 export const load: PageServerLoad = async ({ params, parent }) => {

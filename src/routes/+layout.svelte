@@ -2,7 +2,7 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { resolve } from '$app/paths';
-	import { setLibraryConfig, useArtistsContext, useCharacterContext } from 'phosart-common/util';
+	import { setLibraryConfig, useArtistsContext, useCharacterContext } from '@phosart/common/util';
 	import Card from '$lib/ArtTile.svelte';
 	import { goto as go } from '$app/navigation';
 	import { page } from '$app/state';

@@ -1,6 +1,6 @@
 <script lang="ts" generics="T extends RouteId | Pathname">
-	import { GalleryPreview } from 'phosart-common';
-	import type { Gallery } from 'phosart-common/util';
+	import { GalleryPreview } from '@phosart/common';
+	import type { Gallery } from '@phosart/common/util';
 	import Tile from './Tile.svelte';
 	import type { RouteId } from '$app/types';
 	import type { Pathname } from '$app/types';
