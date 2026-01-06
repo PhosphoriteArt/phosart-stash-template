@@ -48,6 +48,9 @@
 			once = true;
 			if ((sharedQuery.query || '') !== (url.searchParams.get('q') || '')) {
 				url.searchParams.set('q', sharedQuery.query);
+				if (!sharedQuery.query) {
+					url.searchParams.delete('q');
+				}
 				// eslint-disable-next-line svelte/no-navigation-without-resolve
 				replaceState(url, {});
 			}
