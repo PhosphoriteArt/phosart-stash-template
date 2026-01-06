@@ -1,23 +1,23 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import Header from '$lib/Header.svelte';
 	import { Gallery } from '@phosart/common';
 	import { browser } from '$app/environment';
 	import { executeSearch } from '@phosart/common/util';
+	import { sharedQuery } from '$lib/search.svelte.js';
 
 	const { data } = $props();
 
-	const results = $derived(executeSearch(page.state.query ?? '', data.allPieces));
+	const results = $derived(executeSearch(sharedQuery.query ?? '', data.allPieces));
 </script>
 
 <svelte:head>
-	<title>🔎 {page.state.query} | {data.config.title}</title>
+	<title>🔎 {sharedQuery.query} | {data.config.title}</title>
 </svelte:head>
 
 <Header
 	title={data.config.title}
 	subtitle={data.config.subtitle}
-	breadcrumb={[{ label: 'Search: ' + (page.state.query ?? ''), href: ['/search'] }]}
+	breadcrumb={[{ label: 'Search: ' + (sharedQuery.query ?? ''), href: ['/search'] }]}
 />
 
 {#if results}

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DirectoryList from '$lib/DirectoryList.svelte';
 	import Header from '$lib/Header.svelte';
+	import { sharedQuery } from '$lib/search.svelte.js';
 
 	const { data } = $props();
 </script>
@@ -11,4 +12,4 @@
 
 <Header title={data.config.title} subtitle={data.config.subtitle} breadcrumb={[]} />
 
-<DirectoryList tree={data.galleryTree} path={[]} />
+<DirectoryList tree={data.galleryTree} path={[]} search={sharedQuery.query} />

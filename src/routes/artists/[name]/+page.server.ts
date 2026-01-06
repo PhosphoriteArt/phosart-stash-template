@@ -1,4 +1,4 @@
-import { allPieces, filter, getAllArtists } from '@phosart/common/server';
+	import { allPieces, filter, getAllArtists } from '@phosart/common/server';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { normalizeArtist } from '@phosart/common/util';
 import { getFeaturedPieces } from '$lib/featured';

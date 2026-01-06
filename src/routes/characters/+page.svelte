@@ -2,10 +2,30 @@
 	import { resolve } from '$app/paths';
 	import GalleryTile from '$lib/GalleryTile.svelte';
 	import Header from '$lib/Header.svelte';
+	import { sharedQuery } from '$lib/search.svelte.js';
 	import { Image } from '@phosart/common';
 	import type { Character } from '@phosart/common/util';
+	import fz from 'fuzzysort';
 
 	const { data } = $props();
+
+	const foundMyCharacters = $derived.by(() => {
+		if (!sharedQuery.query) {
+			return data.characters;
+		}
+
+		return fz
+			.go(sharedQuery.query, data.characters, { keys: ['name', 'short_description', 'description'] })
+			.map((o) => o.obj);
+	});
+
+	const foundOthersCharacters = $derived.by(() => {
+		if (!sharedQuery.query) {
+			return data.others;
+		}
+
+		return fz.go(sharedQuery.query, data.others, { key: ([nch]) => nch.name }).map((o) => o.obj);
+	});
 </script>
 
 <svelte:head>
@@ -43,7 +63,7 @@
 {/snippet}
 
 <div class="flex flex-col items-stretch">
-	{#each data.characters as v (v.name)}
+	{#each foundMyCharacters as v (v.name)}
 		{@render MyCharacterTile(v.name, v)}
 	{/each}
 </div>
@@ -53,7 +73,7 @@
 </div>
 
 <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-	{#each data.others as [nc, gal] (nc)}
+	{#each foundOthersCharacters as [nc, gal] (nc)}
 		<GalleryTile
 			gallery={{ pieces: gal }}
 			href={[

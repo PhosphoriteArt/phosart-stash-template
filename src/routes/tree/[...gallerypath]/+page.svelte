@@ -2,6 +2,7 @@
 	import { galleryBreadcrumbs } from '$lib/Breadcrumbs.svelte';
 	import DirectoryList from '$lib/DirectoryList.svelte';
 	import Header from '$lib/Header.svelte';
+	import { sharedQuery } from '$lib/search.svelte.js';
 
 	const { data } = $props();
 	const path = $derived(data.gallerypath.split('/'));
@@ -17,4 +18,4 @@
 	breadcrumb={galleryBreadcrumbs(path)}
 />
 
-<DirectoryList tree={data.galleryTree} {path} />
+<DirectoryList tree={data.galleryTree} {path} search={sharedQuery.query} />

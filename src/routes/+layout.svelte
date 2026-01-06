@@ -4,16 +4,55 @@
 	import { resolve } from '$app/paths';
 	import { setLibraryConfig, useArtistsContext, useCharacterContext } from '@phosart/common/util';
 	import Card from '$lib/ArtTile.svelte';
-	import { goto as go } from '$app/navigation';
-	import { page } from '$app/state';
+	import { goto as go, onNavigate, replaceState } from '$app/navigation';
 
 	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import { sharedQuery } from '$lib/search.svelte.js';
+	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
+	import { page } from '$app/state';
 
 	let { children, data } = $props();
 
-	let search = $state('');
-
 	const id = $props.id();
+
+	let once = false;
+
+	onMount(() => {
+		window.addEventListener('keydown', (kev) => {
+			if (
+				(kev.metaKey || kev.ctrlKey) &&
+				kev.code === 'KeyR' &&
+				!page.route.id?.includes('search')
+			) {
+				sharedQuery.query = '';
+			}
+		});
+	});
+
+	onNavigate((nv) => {
+		if (!nv.to?.route.id?.includes('search')) {
+			sharedQuery.query = '';
+		}
+	});
+
+	$effect(() => {
+		if (browser) {
+			const url = new URL(window.location.href);
+			if (!sharedQuery.query && url.search && !once) {
+				const q = url.searchParams.get('q');
+				if (q) {
+					sharedQuery.query = q;
+				}
+			}
+			once = true;
+			if ((sharedQuery.query || '') !== (url.searchParams.get('q') || '')) {
+				url.searchParams.set('q', sharedQuery.query);
+				// eslint-disable-next-line svelte/no-navigation-without-resolve
+				replaceState(url, {});
+			}
+		}
+	});
 
 	// svelte-ignore state_referenced_locally
 	useCharacterContext(data.characters);
@@ -55,8 +94,7 @@
 	<form
 		onsubmit={(e) => {
 			e.preventDefault();
-			go(resolve('/search'), { state: { query: search } });
-			search = '';
+			go(resolve('/search'), { state: { query: sharedQuery.query } });
 		}}
 		class="flex items-stretch gap-x-2"
 	>
@@ -65,17 +103,19 @@
 		</div>
 		<input
 			id="search-{id}"
-			placeholder={page.state.query ?? 'Search'}
+			placeholder={sharedQuery.query ?? 'Search'}
 			class="border-0 border-b border-b-understated-border bg-transparent outline-none"
 			type="text"
-			bind:value={search}
+			bind:value={sharedQuery.query}
 		/>
 		<div class="flex flex-col justify-stretch">
 			<button
 				type="submit"
-				class:invisible={!search}
+				class:invisible={!sharedQuery.query}
 				title="Execute"
-				class="h-full rounded-2xl {search ? 'cursor-pointer hover:bg-understated-highlight' : ''}"
+				class="h-full rounded-2xl {sharedQuery.query
+					? 'cursor-pointer hover:bg-understated-highlight'
+					: ''}"
 			>
 				<i class="fa-solid fa-chevron-right text-understated-text"></i>
 			</button>

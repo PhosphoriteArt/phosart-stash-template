@@ -2,21 +2,31 @@
 	import GalleryTile from '$lib/GalleryTile.svelte';
 	import type { FolderElement, GalleryElement, GalleryTree } from '@phosart/common/util';
 	import Tile from './Tile.svelte';
+	import { qsearchObj } from './search.svelte';
 
 	interface Props {
 		tree: GalleryTree;
 		path: string[];
+		search?: string | null;
 	}
-	const { tree, path }: Props = $props();
+	const { tree, path, search }: Props = $props();
 
 	const folders = $derived(
-		Object.fromEntries(
-			Object.entries(tree).filter((v): v is [string, FolderElement] => v[1].$type === 'folder')
+		qsearchObj(
+			search,
+			Object.fromEntries(
+				Object.entries(tree).filter((v): v is [string, FolderElement] => v[1].$type === 'folder')
+			),
+			(_, k) => k
 		)
 	);
 	const galleries = $derived(
-		Object.fromEntries(
-			Object.entries(tree).filter((v): v is [string, GalleryElement] => v[1].$type === 'gallery')
+		qsearchObj(
+			search,
+			Object.fromEntries(
+				Object.entries(tree).filter((v): v is [string, GalleryElement] => v[1].$type === 'gallery')
+			),
+			(_, k) => k
 		)
 	);
 </script>
