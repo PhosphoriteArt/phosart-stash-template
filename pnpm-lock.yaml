@@ -12,8 +12,11 @@ importers:
         specifier: ^7.1.0
         version: 7.1.0
       '@phosart/common':
-        specifier: ^0.4.23
-        version: 0.4.23(svelte@5.46.1)
+        specifier: ^0.4.30
+        version: 0.4.30(svelte@5.46.1)
+      '@sveltejs/adapter-static':
+        specifier: ^3.0.10
+        version: 3.0.10(@sveltejs/kit@2.49.2(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))
       array-shuffle:
         specifier: ^4.0.0
         version: 4.0.0
@@ -37,8 +40,8 @@ importers:
         specifier: ^9.39.1
         version: 9.39.2
       '@phosart/devtool':
-        specifier: ^0.2.35
-        version: 0.2.35(svelte@5.46.1)
+        specifier: ^0.2.48
+        version: 0.2.48(svelte@5.46.1)
       '@sveltejs/adapter-vercel':
         specifier: ^6.2.0
         version: 6.2.0(@sveltejs/kit@2.49.2(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))(rollup@4.54.0)
@@ -117,17 +120,17 @@ importers:
 
 packages:
 
-  '@atproto/api@0.18.9':
-    resolution: {integrity: sha512-ft+0+sczS0qsoxwjqO1VhCXSNG792QEr+uQ91OCc36DTa3sPtaTPL7yNOVTDyEHaYDfp8tYN4v+Pq5/bzz3EpA==}
+  '@atproto/api@0.18.10':
+    resolution: {integrity: sha512-q23wreAGhktrMLepulvljZWHsUOrTIDwhU3gr/uSX3R1TZIZ3i4SxQZVlMqaQHpNJ/5Xj8J1hozkwVpaOX37eA==}
 
-  '@atproto/common-web@0.4.9':
-    resolution: {integrity: sha512-RGt1rUjVC8FEUlF5JQyN3xYlqZJbFTN0XSBBxl+HozjZGhhVtAVFGa+F+TR6BCVs7q7TcitOv/y/YWz4jJWn9g==}
+  '@atproto/common-web@0.4.10':
+    resolution: {integrity: sha512-TLDZSgSKzT8ZgOrBrTGK87J1CXve9TEuY6NVVUBRkOMzRRtQzpFb9/ih5WVS/hnaWVvE30CfuyaetRoma+WKNw==}
 
-  '@atproto/lex-data@0.0.5':
-    resolution: {integrity: sha512-nasD4eo2wKLyhHozC0vy7Jhp/fBwCKnYhQQogYtraUlT9il6lK1drhT8CNpWlglOhb0T73jLG5WpfNsPp6Pr/w==}
+  '@atproto/lex-data@0.0.6':
+    resolution: {integrity: sha512-MBNB4ghRJQzuXK1zlUPljpPbQcF1LZ5dzxy274KqPt4p3uPuRw0mHjgcCoWzRUNBQC685WMQR4IN9DHtsnG57A==}
 
-  '@atproto/lex-json@0.0.5':
-    resolution: {integrity: sha512-wgmET7fIWi77jxqHnrr0RvpAGhiFqIqjdO9Py3JK2whHMITyYgFRU0HfEtIeWSzx0Vb9z0S7F/fQW3P3gqb+yA==}
+  '@atproto/lex-json@0.0.6':
+    resolution: {integrity: sha512-EILnN5cditPvf+PCNjXt7reMuzjugxAL1fpSzmzJbEMGMUwxOf5pPWxRsaA/M3Boip4NQZ+6DVrPOGUMlnqceg==}
 
   '@atproto/lexicon@0.6.0':
     resolution: {integrity: sha512-5veb8aD+J5M0qszLJ+73KSFsFrJBgAY/nM1TSAJvGY7fNc9ZAT+PSUlmIyrdye9YznAZ07yktalls/TwNV7cHQ==}
@@ -808,13 +811,13 @@ packages:
     peerDependencies:
       svelte: ^5.0.0
 
-  '@phosart/common@0.4.23':
-    resolution: {integrity: sha512-rPXjPPrIzah7ZCHQXgKp2391aHYGWolBYjW18YpNPVCYmUo4YhRisEcYsSpvc4Odm5MbhX67QhzSvVrcmR0PYg==}
+  '@phosart/common@0.4.30':
+    resolution: {integrity: sha512-ZSC12jkawIhNgfbJ+kuyblLXRbvgu8hmNLz5tJl7NEmQgIlTscw3gkx6O17Vhbiba+JK4ucKXvRJm7f46s2w7Q==}
     peerDependencies:
       svelte: ^5.0.0
 
-  '@phosart/devtool@0.2.35':
-    resolution: {integrity: sha512-fL3oRbv+Ivmf/Ato3ueb6MaB3pgHiuDzIbf9oGOSE2Uvr3G3BthnDUX36Sq6pX2peQyoA72JQwHoUXO2VogdjQ==}
+  '@phosart/devtool@0.2.48':
+    resolution: {integrity: sha512-S0ob0l/mtu7OQVIVXc4cs75xiXdomBndjqSiagKdXc3VxwoOo986PzSgsqohb5vQEQ1t6g2ttzakc0ApYCxwyA==}
     hasBin: true
 
   '@polka/url@1.0.0-next.29':
@@ -946,6 +949,11 @@ packages:
     resolution: {integrity: sha512-esgN+54+q0NjB0Y/4BomT9samII7jGwNy/2a3wNZbT2A2RpmXsXwUt24LvLhx6jUq2gVk4cWEvcRO6MFQbOfNA==}
     peerDependencies:
       acorn: ^8.9.0
+
+  '@sveltejs/adapter-static@3.0.10':
+    resolution: {integrity: sha512-7D9lYFWJmB7zxZyTE/qxjksvMqzMuYrrsyh1f4AlZqeZeACPRySjbC3aFiY55wb1tWUaKOQG9PVbm74JcN2Iew==}
+    peerDependencies:
+      '@sveltejs/kit': ^2.0.0
 
   '@sveltejs/adapter-vercel@6.2.0':
     resolution: {integrity: sha512-JojC+3dcxNKxO6ixoHq7k1QRL2KCX7RzwfXp1vwbLZkKZrPc5KvhbutVYYiIe0C3aky7VJU6kWp1k9a4b1mgoA==}
@@ -1994,6 +2002,11 @@ packages:
     resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
     engines: {node: '>=8.6'}
 
+  mime@4.1.0:
+    resolution: {integrity: sha512-X5ju04+cAzsojXKes0B/S4tcYtFAJ6tTMuSPBEn9CPGlrWr8Fiw7qYeLT0XyH80HSoAoqWCaz+MWKh22P7G1cw==}
+    engines: {node: '>=16'}
+    hasBin: true
+
   mimic-fn@2.1.0:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
     engines: {node: '>=6'}
@@ -2708,9 +2721,9 @@ packages:
 
 snapshots:
 
-  '@atproto/api@0.18.9':
+  '@atproto/api@0.18.10':
     dependencies:
-      '@atproto/common-web': 0.4.9
+      '@atproto/common-web': 0.4.10
       '@atproto/lexicon': 0.6.0
       '@atproto/syntax': 0.4.2
       '@atproto/xrpc': 0.7.7
@@ -2719,13 +2732,13 @@ snapshots:
       tlds: 1.261.0
       zod: 3.25.76
 
-  '@atproto/common-web@0.4.9':
+  '@atproto/common-web@0.4.10':
     dependencies:
-      '@atproto/lex-data': 0.0.5
-      '@atproto/lex-json': 0.0.5
+      '@atproto/lex-data': 0.0.6
+      '@atproto/lex-json': 0.0.6
       zod: 3.25.76
 
-  '@atproto/lex-data@0.0.5':
+  '@atproto/lex-data@0.0.6':
     dependencies:
       '@atproto/syntax': 0.4.2
       multiformats: 9.9.0
@@ -2733,14 +2746,14 @@ snapshots:
       uint8arrays: 3.0.0
       unicode-segmenter: 0.14.5
 
-  '@atproto/lex-json@0.0.5':
+  '@atproto/lex-json@0.0.6':
     dependencies:
-      '@atproto/lex-data': 0.0.5
+      '@atproto/lex-data': 0.0.6
       tslib: 2.8.1
 
   '@atproto/lexicon@0.6.0':
     dependencies:
-      '@atproto/common-web': 0.4.9
+      '@atproto/common-web': 0.4.10
       '@atproto/syntax': 0.4.2
       iso-datestring-validator: 2.2.2
       multiformats: 9.9.0
@@ -3217,7 +3230,7 @@ snapshots:
 
   '@phosart/bsky@0.2.1(svelte@5.46.1)':
     dependencies:
-      '@atproto/api': 0.18.9
+      '@atproto/api': 0.18.10
       mongodb: 7.0.0
       svelte: 5.46.1
     transitivePeerDependencies:
@@ -3229,7 +3242,7 @@ snapshots:
       - snappy
       - socks
 
-  '@phosart/common@0.4.23(svelte@5.46.1)':
+  '@phosart/common@0.4.30(svelte@5.46.1)':
     dependencies:
       '@fortawesome/fontawesome-free': 7.1.0
       async-sema: 3.1.1
@@ -3251,10 +3264,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@phosart/devtool@0.2.35(svelte@5.46.1)':
+  '@phosart/devtool@0.2.48(svelte@5.46.1)':
     dependencies:
-      '@atproto/api': 0.18.9
-      '@atproto/common-web': 0.4.9
+      '@atproto/api': 0.18.10
+      '@atproto/common-web': 0.4.10
       '@atproto/lexicon': 0.6.0
       '@atproto/xrpc': 0.7.7
       '@ffmpeg-installer/ffmpeg': 1.1.0
@@ -3262,12 +3275,13 @@ snapshots:
       '@fortawesome/fontawesome-free': 7.1.0
       '@monaco-editor/loader': 1.7.0
       '@phosart/bsky': 0.2.1(svelte@5.46.1)
-      '@phosart/common': 0.4.23(svelte@5.46.1)
+      '@phosart/common': 0.4.30(svelte@5.46.1)
       async-sema: 3.1.1
       chrono-node: 2.9.0
       es-toolkit: 1.43.0
       fuzzysort: 3.1.0
       luxon: 3.7.2
+      mime: 4.1.0
       monaco-editor: 0.55.1
       msgpackr: 1.11.8
       opener: 1.5.2
@@ -3369,6 +3383,10 @@ snapshots:
   '@sveltejs/acorn-typescript@1.0.8(acorn@8.15.0)':
     dependencies:
       acorn: 8.15.0
+
+  '@sveltejs/adapter-static@3.0.10(@sveltejs/kit@2.49.2(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))':
+    dependencies:
+      '@sveltejs/kit': 2.49.2(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2))
 
   '@sveltejs/adapter-vercel@6.2.0(@sveltejs/kit@2.49.2(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))(svelte@5.46.1)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)))(rollup@4.54.0)':
     dependencies:
@@ -4613,6 +4631,8 @@ snapshots:
     dependencies:
       braces: 3.0.3
       picomatch: 2.3.1
+
+  mime@4.1.0: {}
 
   mimic-fn@2.1.0: {}
 

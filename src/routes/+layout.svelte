@@ -78,6 +78,10 @@
 				},
 				tag: { action: { makeHref: (tag) => resolve('/tags/[tag]', { tag }) } }
 			}
+		},
+		defaultTransformSrc: (s) => {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			return resolve(s as any);
 		}
 	});
 </script>
