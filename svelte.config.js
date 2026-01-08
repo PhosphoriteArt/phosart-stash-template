@@ -14,20 +14,26 @@ async function getWebMode() {
 }
 
 const tc = await getWebMode();
+const isVercel = process.env.VERCEL === '1';
 
-process.env.ADAPTER = tc ?? 'static';
 if (process.env.FORCE_STATIC === 'true') {
 	process.env.ADAPTER = 'static';
-} else if (process.env.VERCEL === '1') {
+} else if (process.env.FORCE_VERCEL === 'true') {
 	process.env.ADAPTER = 'vercel';
+} else if (tc) {
+	process.env.ADAPTER = tc;
+} else {
+	process.env.adapter = 'static';
 }
 
 const adapter =
 	process.env.ADAPTER === 'vercel'
 		? adapterVercel()
-		: adapterStatic({
-				fallback: '404.html'
-			});
+		: isVercel
+			? adapterStatic()
+			: adapterStatic({
+					fallback: '404.html'
+				});
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -39,6 +45,7 @@ const config = {
 		adapter: adapter,
 		prerender: { handleUnseenRoutes: 'warn' },
 		paths: {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			base: process.argv.includes('dev') ? '' : (process.env.BASE_PATH ?? undefined)
 		}
