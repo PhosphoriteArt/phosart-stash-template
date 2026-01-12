@@ -10,7 +10,7 @@ import {
 import type { LayoutServerLoad } from './$types';
 import type { ThemeSchema } from '../data/generated-schema';
 
-export const load: LayoutServerLoad = async () => {
+export const load: LayoutServerLoad = async ({ url }) => {
 	const config = await readThemeConfig(await readThemeSchema<ThemeSchema>());
 	return {
 		config,
@@ -21,8 +21,9 @@ export const load: LayoutServerLoad = async () => {
 				.flatMap((p) => p.tags).length > 0,
 		hasContent: Object.values(await galleries()).flatMap((g) => g.pieces).length > 0,
 		// Intentional; if it's just the site owner, don't list.
-    hasArtists: (await getAllArtists()).length > 1,
-    characters: await characters(),
-    artists: await artists()
+		hasArtists: (await getAllArtists()).length > 1,
+		characters: await characters(),
+		artists: await artists(),
+		origin: process.env.ORIGIN ?? url.origin
 	};
 };

@@ -23,7 +23,7 @@ if (process.env.FORCE_STATIC === 'true') {
 } else if (tc) {
 	process.env.ADAPTER = tc;
 } else {
-	process.env.adapter = 'static';
+	process.env.ADAPTER = 'static';
 }
 
 const adapter =

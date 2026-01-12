@@ -2,7 +2,12 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { resolve } from '$app/paths';
-	import { setLibraryConfig, useArtistsContext, useCharacterContext } from '@phosart/common/util';
+	import {
+		setLibraryConfig,
+		sveltekitAbsolutePath,
+		useArtistsContext,
+		useCharacterContext
+	} from '@phosart/common/util';
 	import Card from '$lib/ArtTile.svelte';
 	import { goto as go, onNavigate, replaceState } from '$app/navigation';
 
@@ -79,10 +84,13 @@
 				tag: { action: { makeHref: (tag) => resolve('/tags/[tag]', { tag }) } }
 			}
 		},
-		defaultTransformSrc: (s) => {
+		defaultTransformSrc: sveltekitAbsolutePath(
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			return resolve(s as any);
-		}
+			(s) => resolve(s as any),
+			() => page.url.pathname
+		),
+		getPage: () => page.url.pathname,
+		origin: data.origin,
 	});
 </script>
 

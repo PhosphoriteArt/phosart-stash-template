@@ -1,7 +1,7 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { text } from '@sveltejs/kit';
 
-export const prerender = process.env.ADAPTER === 'static';
+export const prerender = process.env.ADAPTER !== 'vercel';
 
 const FALLBACK_ROBOTS = `
 User-agent: AI2Bot
