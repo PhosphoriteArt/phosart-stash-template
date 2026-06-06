@@ -1,15 +1,12 @@
 <script lang="ts">
-	import DirectoryList from '$lib/DirectoryList.svelte';
-	import Header from '$lib/Header.svelte';
-	import { sharedQuery } from '$lib/search.svelte.js';
+	import SingleGalleryView from './galleries/[...gallerypath]/SingleGalleryView.svelte';
+	import MultiGalleryTree from './MultiGalleryTree.svelte';
 
 	const { data } = $props();
 </script>
 
-<svelte:head>
-	<title>Home | {data.config.title}</title>
-</svelte:head>
-
-<Header title={data.config.title} subtitle={data.config.subtitle} breadcrumb={[]} />
-
-<DirectoryList tree={data.galleryTree} path={[]} search={sharedQuery.query} />
+{#if data.single}
+	<SingleGalleryView hideBreadcrumb data={Object.assign({}, data, data.single!)} />
+{:else}
+	<MultiGalleryTree data={Object.assign({}, data, data.multi!)} />
+{/if}

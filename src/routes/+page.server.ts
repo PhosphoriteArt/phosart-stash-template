@@ -1,10 +1,12 @@
 import { galleries } from '@phosart/common/server';
 import type { PageServerLoad } from './$types';
-import { pathView } from '@phosart/common/util';
-import { asTree } from '$lib/tree';
+import { multiGalleryTreeData } from './load.server';
+import { singleGalleryData } from './galleries/[...gallerypath]/load';
 
-export const load: PageServerLoad = async () => {
-	return {
-		galleryTree: pathView(asTree(await galleries(), /* pruneGalleries = */ 4), [])
-	};
+export const load: PageServerLoad = async ({ parent }) => {
+	const gal = Object.keys(await galleries());
+	if (gal.length === 1) {
+		return { single: await singleGalleryData(gal[0], await parent()) };
+	}
+	return { multi: await multiGalleryTreeData() };
 };
