@@ -27,6 +27,8 @@ export const load: LayoutServerLoad = async ({ url }) => {
 		origin: process.env.ORIGIN ?? url.origin,
 		hasAnyNsfw: Object.values(await galleries())
 			.flatMap((g) => g.pieces)
-			.some((p) => !!p.nsfw)
+			.some((p) => !!p.nsfw),
+		enableNsfwWarning: true,
+		hideNsfw: true
 	};
 };

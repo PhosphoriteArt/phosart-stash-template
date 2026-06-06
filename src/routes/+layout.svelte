@@ -28,6 +28,9 @@
 	let confirmConsent = $state(false);
 
 	onMount(() => {
+		if (!data.hideNsfw) {
+			nsfwConsented.consented = true;
+		}
 		window.addEventListener('keydown', (kev) => {
 			if (
 				(kev.metaKey || kev.ctrlKey) &&
@@ -152,7 +155,7 @@
 </div>
 
 <Modal
-	open={data.hasAnyNsfw && !nsfwConsented.consented}
+	open={data.hasAnyNsfw && !nsfwConsented.consented && data.enableNsfwWarning}
 	onclose={() => {
 		confirmConsent = false;
 	}}
