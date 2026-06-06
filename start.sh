@@ -119,60 +119,12 @@ ensure_pnpm() {
 	"${NODE_DIR}/bin/npm" install -g "pnpm@${pnpm_version}"
 }
 
-ensure_git() {
-	local git_dir="${BIN_DIR}/git-${PLATFORM}"
-	local git_bin="${git_dir}/bin/git"
-
-	if [ -x "$git_bin" ]; then
-		GIT_DIR="$git_dir"
-		return
-	fi
-
-	local git_version="${GIT_VERSION:-2.47.1}"
-	log "Installing Git ${git_version} for ${PLATFORM}..."
-	mkdir -p "$BIN_DIR"
-	local tmp
-	tmp="$(mktemp -d)"
-
-	local archive="git-${git_version}.tar.xz"
-	local url="${GIT_BASE_URL:-https://mirrors.edge.kernel.org/pub/software/scm/git}/${archive}"
-	download "$url" "${tmp}/${archive}"
-	tar -xJf "${tmp}/${archive}" -C "$tmp"
-
-	local src_dir="${tmp}/git-${git_version}"
-	[ -d "$src_dir" ] || die "Git source directory not found after extract."
-
-	command -v make >/dev/null 2>&1 || die "Missing make; cannot build Git."
-	command -v cc >/dev/null 2>&1 || command -v gcc >/dev/null 2>&1 || die "Missing C compiler; cannot build Git."
-
-	local jobs="4"
-	if command -v nproc >/dev/null 2>&1; then
-		jobs="$(nproc)"
-	elif command -v sysctl >/dev/null 2>&1; then
-		jobs="$(sysctl -n hw.ncpu)"
-	fi
-
-	(
-		cd "$src_dir"
-		if [ ! -x "./configure" ]; then
-			make configure
-		fi
-		./configure --prefix="$git_dir"
-		make -j"$jobs"
-		make install
-	)
-
-	rm -rf "$tmp"
-	GIT_DIR="$git_dir"
-}
-
 main() {
 	detect_platform
 	ensure_node
 	ensure_pnpm
-	ensure_git
 
-	export PATH="${GIT_DIR}/bin:${NODE_DIR}/bin:${PATH}"
+	export PATH="${NODE_DIR}/bin:${PATH}"
 	cd "$ROOT_DIR"
 	pnpm install
 	pnpm update -L '@phosart/common' '@phosart/devtool'
