@@ -24,6 +24,9 @@ export const load: LayoutServerLoad = async ({ url }) => {
 		hasArtists: (await getAllArtists()).length > 1,
 		characters: await characters(),
 		artists: await artists(),
-		origin: process.env.ORIGIN ?? url.origin
+		origin: process.env.ORIGIN ?? url.origin,
+		hasAnyNsfw: Object.values(await galleries())
+			.flatMap((g) => g.pieces)
+			.some((p) => !!p.nsfw)
 	};
 };
