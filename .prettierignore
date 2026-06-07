@@ -7,3 +7,9 @@ bun.lockb
 
 # Miscellaneous
 /static/
+
+# Generated data
+/src/data/.theme-schema.json
+/src/data/generated-schema.ts
+/src/data/theme-config.yaml
+/src/data/deployment.json
