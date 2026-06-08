@@ -126,7 +126,8 @@ main() {
 
 	export PATH="${NODE_DIR}/bin:${PATH}"
 	cd "$ROOT_DIR"
-	pnpm install
+	corepack enable
+	pnpm install --yes
 	pnpm update -L '@phosart/common' '@phosart/devtool'
 	pnpm run editpreview
 }

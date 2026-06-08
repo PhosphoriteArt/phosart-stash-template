@@ -9,7 +9,22 @@ onlyBuiltDependencies:
   - '@parcel/watcher'
   - esbuild
   - msgpackr-extract
-  - phosart-bsky
-  - phosart-common
-  - phosart-devtool
   - sharp
+
+minimumReleaseAgeExclude:
+  - '@phosart/common'
+  - '@phosart/devtool'
+  - '@phosart/bsky'
+
+allowBuilds:
+  '@ffmpeg-installer/darwin-arm64': true
+  '@ffmpeg-installer/darwin-x64': true
+  '@ffmpeg-installer/linux-arm': true
+  '@ffmpeg-installer/linux-ia32': true
+  '@ffmpeg-installer/linux-x64': true
+  '@ffmpeg-installer/win32-ia32': true
+  '@ffmpeg-installer/win32-x64': true
+  '@parcel/watcher': true
+  esbuild: true
+  msgpackr-extract: true
+  sharp: true
